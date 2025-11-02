@@ -5,7 +5,7 @@ import InputField from "@/components/forms/InputField";
 import SelectField from '@/components/forms/SelectField'
 import { Button } from '@/components/ui/button'
 import { INVESTMENT_GOALS, PREFERRED_INDUSTRIES, RISK_TOLERANCE_OPTIONS } from '@/lib/constants'
-import { useForm, SubmitHandler } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 
 const SignUp = () => {
   const {
