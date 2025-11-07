@@ -23,7 +23,6 @@ export const connectToDatabase = async () => {
 
     if (!MONGODB_URI) throw new Error('MONGODB_URI is not defined in env');
 
-
     if (cached.conn) return cached.conn;
 
     // prevents multiple connections from being created simultaneously
@@ -41,4 +40,6 @@ export const connectToDatabase = async () => {
     }
 
     console.log(`MongoDB connected: ${process.env.NODE_ENV} - ${MONGODB_URI}`);
+
+    return cached.conn;
 };
