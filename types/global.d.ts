@@ -73,6 +73,12 @@ declare global {
         email: string;
     };
 
+    type UserForNewsEmail = {
+        id: string;
+        email: string;
+        name: string;
+    };
+
     type Stock = {
         symbol: string;
         name: string;
@@ -217,4 +223,4 @@ declare global {
     };
 }
 
-export {};
+export { };
