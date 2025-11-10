@@ -6,7 +6,7 @@ import { sendNewsSummaryEmail, sendWelcomeEmail } from "@/lib/nodemailer";
 import { getAllUsersForNewsEmail } from "@/lib/actions/user.actions";
 import { getWatchlistSymbolsByEmail } from "@/lib/actions/watchlist.actions";
 import { getNews } from "@/lib/actions/finnhub.actions";
-import { formatDateToday } from "../utils";
+import { formatDateToday, getFormattedTodayDate } from "../utils";
 
 export const sendSignUpEmail = inngest.createFunction(
     { id: 'sign-up-email' },
@@ -75,7 +75,7 @@ export const sendDailyNewsSummary = inngest.createFunction(
                     }
                     perUser.push({ user, articles });
                 } catch (e) {
-                    console.error('daily-news: error preparing user news', user.email, e);
+                    console.error('daily-news: error preparing user news', e);
                     perUser.push({ user, articles: [] });
                 }
             }
@@ -100,7 +100,7 @@ export const sendDailyNewsSummary = inngest.createFunction(
 
                 userNewsSummaries.push({ user, newsContent });
             } catch (error) {
-                console.error('daily-news: error summarizing news for:', user.email, error);
+                console.error('daily-news: error summarizing news:', error);
                 userNewsSummaries.push({ user, newsContent: null });
             }
         }
@@ -110,7 +110,7 @@ export const sendDailyNewsSummary = inngest.createFunction(
             await Promise.all(
                 userNewsSummaries.map(async ({ user, newsContent }) => {
                     if (!newsContent) return false;
-                    return await sendNewsSummaryEmail({ email: user.email, date: formatDateToday, newsContent })
+                    return await sendNewsSummaryEmail({ email: user.email, date: getFormattedTodayDate(), newsContent }) //getFormattedTodayDate() executes at runtime so it doesnt get stale
                 })
             )
         })
