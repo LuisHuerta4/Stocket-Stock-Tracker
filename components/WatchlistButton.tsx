@@ -14,7 +14,7 @@ const WatchlistButton = ({
     company,
     isInWatchlist,
     showTrashIcon = false,
-    type = 'button',
+    type,
     onWatchlistChange,
 }: WatchlistButtonProps) => {
     const [added, setAdded] = useState<boolean>(!!isInWatchlist);
