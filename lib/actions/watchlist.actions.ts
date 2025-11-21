@@ -85,3 +85,22 @@ export const removeFromWatchlist = async (symbol: string) => {
         throw new Error('Failed to remove stock from watchlist');
     }
 };
+
+// Get user's watchlist
+export const getUserWatchlist = async () => {
+    try {
+        const session = await auth.api.getSession({
+            headers: await headers(),
+        });
+        if (!session?.user) redirect('/sign-in');
+
+        const watchlist = await Watchlist.find({ userId: session.user.id })
+            .sort({ addedAt: -1 })
+            .lean();
+
+        return JSON.parse(JSON.stringify(watchlist));
+    } catch (error) {
+        console.error('Error fetching watchlist:', error);
+        throw new Error('Failed to fetch watchlist');
+    }
+}
