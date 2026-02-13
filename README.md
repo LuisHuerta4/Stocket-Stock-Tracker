@@ -50,6 +50,18 @@ Stocket exists to make market discovery and tracking effortless. It blends visua
 
 ## Screens
 
+### Sign Up
+<img src="public\assets\screens\signup-screen.png" width="auto" height="500">
+
+### Dashboard
+<img src="public\assets\screens\dashboard-screen.png" width="auto" height="500">
+
+### Info
+<img src="public\assets\screens\info-screen.png" width="auto" height="500">
+
+### Watchlist
+<img src="public\assets\screens\watchlist-screen.png" width="auto" height="500">
+
 ---
 ## Architecture & Design
 
