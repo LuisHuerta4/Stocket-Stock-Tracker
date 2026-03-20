@@ -24,6 +24,22 @@ A full-stack market intelligence platform built with Next.js 15 App Router. Stoc
 
 ---
 
+## Screens
+
+### Sign Up
+<img src="public\assets\screens\signup-screen.png" width="auto" height="500">
+
+### Dashboard
+<img src="public\assets\screens\dashboard-screen.png" width="auto" height="500">
+
+### Info
+<img src="public\assets\screens\info-screen.png" width="auto" height="500">
+
+### Watchlist
+<img src="public\assets\screens\watchlist-screen.png" width="auto" height="500">
+
+---
+
 ## Tech Stack
 
 ### Frontend
@@ -98,22 +114,6 @@ Inngest Platform
 - **Optimistic UI with debounce** — Watchlist mutations update the UI instantly and fire the Server Action after a 300 ms debounce, preventing duplicate requests on rapid clicks.
 - **Durable background steps** — Inngest's `step.run` and `step.ai.infer` make each stage of the email workflows independently retriable. A failed Gemini call does not re-trigger the user-fetch or news-fetch steps.
 - **Route-group auth guards** — Authentication is enforced at the layout level in both route groups: `(root)` redirects unauthenticated users to `/sign-in`; `(auth)` redirects authenticated users to `/`.
-
----
-
-## Screens
-
-### Sign Up
-<img src="public\assets\screens\signup-screen.png" width="auto" height="500">
-
-### Dashboard
-<img src="public\assets\screens\dashboard-screen.png" width="auto" height="500">
-
-### Info
-<img src="public\assets\screens\info-screen.png" width="auto" height="500">
-
-### Watchlist
-<img src="public\assets\screens\watchlist-screen.png" width="auto" height="500">
 
 ---
 
